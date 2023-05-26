@@ -147,6 +147,9 @@ print(lista.index("김철수"))
 lista.pop()
 print(lista)
 
+#끄집어낸 요소 보이게 하는 방법
+#print(lista.pop())
+
 #문자 리스트를 문자열로 만들기
 lista=["hello","world","python"]
 st1=""
@@ -156,3 +159,30 @@ print(st2)
 sta="hello world python"
 sta2=sta.split()
 print(sta2)
+
+
+#최대값 구하기: for문만 이용, 방법1
+#아래 리스트의 최대값을 정렬함수x(sort), 최대값함수 쓰지 말고 구해보라
+lista=[100,20,30,5,90]
+
+
+maxa=lista[0]
+mina=lista[0]
+for a in lista:
+    if maxa<a:
+        maxa=a
+    if mina>a:
+        mina=a
+print(maxa)
+print(mina)
+
+#방법2, max함수 이용
+maxA=max(lista)
+minB=min(lista)
+print(maxA)
+print(minB)
+
+#방법3, sort함수 이용
+lista.sort()
+print(lista[0])
+print(lista[-1])
