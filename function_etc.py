@@ -110,10 +110,23 @@ print(result)
 #다섯개의 숫자중에 2개씩 숫자를 추출하는 경우의 수를 구하고자 한다.
 #2개씩 숫자를 추출하여 list에 담아 마지막에 모든 리스트를 출력하도록 하여라
 #예시) [[10,30],[20,10],...]
-lista=[10,20,30,40,50]
-newlist=[]
 
-for a in range(len(lista)):
-    for b in range(a+1, len(lista)):
-        newlist.append([lista[a],lista[b]]) #[[10,20],...]
-print(newlist)
+
+# def recur(lista,total_list,temp_list,n,m):
+#     if m==0:
+#         total_list.append(temp_list[:])
+#         return 
+#     for a in range(n,len(lista)):
+#         temp_list.append(lista[a])
+#         recur(lista,total_list,temp_list,a+1,m-1)
+#         temp_list.pop()
+            
+
+# input1=[10,20,30,40,50]
+# total_list=[]
+# input2=3
+# recur(input1,total_list,[],0,input2)
+# print(total_list)
+
+
+
