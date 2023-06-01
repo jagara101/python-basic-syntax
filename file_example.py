@@ -61,22 +61,41 @@ import os
 #         print(fullpath)
 
 #그 다음 폴더까지 검색
-searchDir=r'C:\Users\kiman\OneDrive\바탕 화면\산대특'
+# searchDir=r'C:\Users\kiman\OneDrive\바탕 화면\산대특'
 #파일,디렉토리 목록을 뽑아내는 listdir 함수 사용
-dirList = os.listdir(searchDir)
-for dir in dirList:
-    filename = os.path.join(searchDir, dir)
-    if os.path.isdir(filename):
-        dirlist2=os.listdir(filename)
-        for dir2 in dirlist2:
-            dirTuple2 = os.path.splitext(dir2)
-            if(dirTuple2[1]=='.py'):
-                fullPath = os.path.join(filename, dir2)
-                print(fullPath)
-    dirTuple = os.path.splitext(dir)
-    if(dirTuple[1]=='.py'):
-        fullPath = os.path.join(searchDir, dir)
-        print(fullPath)
+# dirList = os.listdir(searchDir)
+# for dir in dirList:
+#     filename = os.path.join(searchDir, dir)
+#     if os.path.isdir(filename):
+#         dirlist2=os.listdir(filename)
+#         for dir2 in dirlist2:
+#             dirTuple2 = os.path.splitext(dir2)
+#             if(dirTuple2[1]=='.py'):
+#                 fullPath = os.path.join(filename, dir2)
+#                 print(fullPath)
+#     dirTuple = os.path.splitext(dir)
+#     if(dirTuple[1]=='.py'):
+#         fullPath = os.path.join(searchDir, dir)
+#         print(fullPath)
 
 
-#모든 폴더까지 검색
+#모든 폴더까지 검색(재귀함수 이용)
+
+
+#파일,디렉토리 목록을 뽑아내는 listdir 함수 사용
+def searchRecur(searchDir):
+    dirList = os.listdir(searchDir)
+    if not dirList:
+        return
+    for dir in dirList:
+        filename = os.path.join(searchDir, dir)
+        if os.path.isdir(filename):
+            searchRecur(filename)         
+        dirTuple = os.path.splitext(dir)
+        if(dirTuple[1]=='.py'):
+            fullPath = os.path.join(searchDir, dir)
+            print(fullPath)
+      
+
+searchDir=r'C:\Users\kiman\OneDrive\바탕 화면\산대특'
+searchRecur(searchDir)
